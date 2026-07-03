@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:3dcf2d28007778b50a349034658eef85e2bae0fa70ace5bc6fb7e1d1cc1fd48b",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-010",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 5100.0,
+      "category": "INTAKE",
+      "deadline": "2026-07-25",
+      "id": "REC-010",
+      "notes": "Intake complete.",
+      "owner": "j.cohen"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-25",
+      "matter_id": "REC-010",
+      "matter_type": "INTAKE",
+      "matter_value": 5100.0,
+      "responsible_attorney": "j.cohen",
+      "summary": "Routine new matter intake for j.cohen; matter value $5,100, target date 2026-07-25."
+    },
+    "record_id": "REC-010"
+  },
+  "response_hash": "sha256:87d8b665cab558cbe9f2fbdaf70b3a8de0b19d98229b4a6e25183801b0bf91cd",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

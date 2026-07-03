@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:d2a23bf42479993c80891e3c6824a48ef68cf946b782144a522ec38cb39f16c4",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-019",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 4850.0,
+      "category": "ONBOARDING",
+      "deadline": "2026-07-27",
+      "id": "REC-019",
+      "notes": "Onboarding pack complete.",
+      "owner": "s.haque"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-27",
+      "matter_id": "REC-019",
+      "matter_type": "ONBOARDING",
+      "matter_value": 4850.0,
+      "responsible_attorney": "s.haque",
+      "summary": "Routine new-matter onboarding for s.haque; matter value $4,850, target date 2026-07-27."
+    },
+    "record_id": "REC-019"
+  },
+  "response_hash": "sha256:55a7026801cda7ab2c81f9ec327b70218f9cc9a515cab996322db8172fac4c61",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

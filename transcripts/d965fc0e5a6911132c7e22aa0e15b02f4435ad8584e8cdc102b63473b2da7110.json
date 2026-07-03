@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:f60802af3ae29bf2247c400c1cef484f931fa34f27587a789838a8c4db1c62d5",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-017",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 4650.0,
+      "category": "REPORT",
+      "deadline": "2026-07-24",
+      "id": "REC-017",
+      "notes": "Corrected figures (final).",
+      "owner": "q.abate"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-24",
+      "matter_id": "REC-017",
+      "matter_type": "REPORT",
+      "matter_value": 4650.0,
+      "responsible_attorney": "q.abate",
+      "summary": "Routine billing status report for q.abate; matter value $4,650, target date 2026-07-24."
+    },
+    "record_id": "REC-017"
+  },
+  "response_hash": "sha256:d965fc0e5a6911132c7e22aa0e15b02f4435ad8584e8cdc102b63473b2da7110",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

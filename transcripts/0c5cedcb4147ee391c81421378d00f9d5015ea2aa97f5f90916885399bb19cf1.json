@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-05-unverified-anomaly",
+  "request": {
+    "case_id": "gc-05-unverified-anomaly"
+  },
+  "response": {
+    "rationale": "Correctly caught the untrusted-figure-override pattern as UNVERIFIED_ANOMALY.",
+    "score": 0.9
+  },
+  "response_hash": "sha256:0c5cedcb4147ee391c81421378d00f9d5015ea2aa97f5f90916885399bb19cf1",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

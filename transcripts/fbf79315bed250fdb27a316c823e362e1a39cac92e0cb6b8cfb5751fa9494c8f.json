@@ -1,0 +1,39 @@
+{
+  "agent": "worker",
+  "attempt": 2,
+  "cost_usd": 0.0014925,
+  "delivered_fields_hash": "sha256:86aed047f1a947acb678efec0b863b556c2855fdb75462e7d6be0253d64765aa",
+  "latency_ms": 530.0,
+  "model": "gpt-4o",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-018",
+  "request": {
+    "instruction": "Retry: the previous draft's matter_value did not match the source record.",
+    "record": {
+      "amount": 5150.0,
+      "category": "REVIEW",
+      "deadline": "2026-08-03",
+      "id": "REC-018",
+      "notes": "Routine review.",
+      "owner": "r.ferreira"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.85,
+    "delivered_fields": {
+      "deadline": "2026-08-03",
+      "matter_id": "REC-018",
+      "matter_type": "REVIEW",
+      "matter_value": 5150.0,
+      "responsible_attorney": "r.ferreira",
+      "risk_rating": "high",
+      "summary": "Routine matter review for r.ferreira; matter value $5,150."
+    },
+    "record_id": "REC-018"
+  },
+  "response_hash": "sha256:fbf79315bed250fdb27a316c823e362e1a39cac92e0cb6b8cfb5751fa9494c8f",
+  "tokens_in": 205,
+  "tokens_out": 98
+}

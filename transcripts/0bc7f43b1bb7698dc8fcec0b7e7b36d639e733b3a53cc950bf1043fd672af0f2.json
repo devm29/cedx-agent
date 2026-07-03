@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-06-schema-drift",
+  "request": {
+    "case_id": "gc-06-schema-drift"
+  },
+  "response": {
+    "rationale": "Correctly inferred the renamed field structurally and logged SCHEMA_DRIFT.",
+    "score": 0.93
+  },
+  "response_hash": "sha256:0bc7f43b1bb7698dc8fcec0b7e7b36d639e733b3a53cc950bf1043fd672af0f2",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

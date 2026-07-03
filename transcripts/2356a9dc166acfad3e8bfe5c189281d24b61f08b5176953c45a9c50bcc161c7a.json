@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-09-worker-abstain",
+  "request": {
+    "case_id": "gc-09-worker-abstain"
+  },
+  "response": {
+    "rationale": "Worker correctly abstained on an ambiguous record instead of guessing.",
+    "score": 0.92
+  },
+  "response_hash": "sha256:2356a9dc166acfad3e8bfe5c189281d24b61f08b5176953c45a9c50bcc161c7a",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

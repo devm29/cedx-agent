@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:deecb7df148aca13125deb8bd80d889bca0782687fbf500e634ef1074592c791",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-005",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 4500.0,
+      "category": "INTAKE",
+      "deadline": "2026-07-28",
+      "id": "REC-005",
+      "notes": "New intake, complete docs.",
+      "owner": "e.moreau"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-28",
+      "matter_id": "REC-005",
+      "matter_type": "INTAKE",
+      "matter_value": 4500.0,
+      "responsible_attorney": "e.moreau",
+      "summary": "Routine new matter intake for e.moreau; matter value $4,500, target date 2026-07-28."
+    },
+    "record_id": "REC-005"
+  },
+  "response_hash": "sha256:9faf823601d1cc91a31ee8f33d4efd2507afdfb78cd103ff45008409708dd7c1",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

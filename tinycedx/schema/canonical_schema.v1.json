@@ -1,0 +1,17 @@
+{
+  "$id": "tinycedx://schema/canonical_schema.v1.json",
+  "title": "CEDX Tiny Fleet — canonical work-request record (v1)",
+  "description": "The declarative, versioned target shape every intake record is normalized into, regardless of source format (feed/eml/pdf) or original field names. Orchestration Stage 2 (normalize.py) maps raw records onto this; detectors run against the normalized shape.",
+  "type": "object",
+  "version": 1,
+  "required": ["id", "owner", "deadline", "category", "amount", "notes"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "owner": { "type": ["string", "null"], "description": "responsible attorney" },
+    "deadline": { "type": ["string", "null"], "format": "date" },
+    "category": { "type": ["string", "null"] },
+    "amount": { "type": ["number", "null"], "description": "matter value / retainer amount" },
+    "notes": { "type": ["string", "null"] },
+    "version": { "type": "integer", "default": 1 }
+  }
+}

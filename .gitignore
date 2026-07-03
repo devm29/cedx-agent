@@ -1,0 +1,35 @@
+# pipeline output (rebuilt by `make demo`)
+out/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+project_venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+
+# env files (keep the example)
+.env
+.env.*
+!.env.example
+
+# misc
+node_modules/
+.github/
+logs/
+*.log
+tmp/
+*.tmp
+.DS_Store

@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:b8ad0c8c6fa9e18a467694b014609bf5773542ff585e6b5f727660af8f9ba0b1",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-007",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 4700.0,
+      "category": "REVIEW",
+      "deadline": "2026-07-22",
+      "id": "REC-007",
+      "notes": "Standard review, all inputs present.",
+      "owner": "g.silva"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-22",
+      "matter_id": "REC-007",
+      "matter_type": "REVIEW",
+      "matter_value": 4700.0,
+      "responsible_attorney": "g.silva",
+      "summary": "Routine matter review for g.silva; matter value $4,700, target date 2026-07-22."
+    },
+    "record_id": "REC-007"
+  },
+  "response_hash": "sha256:f92bd91cb0d3c5bc808b76722d55104bb32a84e9328c3de6f3fa0a31b03c02db",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

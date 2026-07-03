@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:b22d829f50215244b301e93d3236eb9fd7874490e5cb3e4be6032784d5e1ec77",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-004",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 6100.0,
+      "category": "REPORT",
+      "deadline": "2026-08-01",
+      "id": "REC-004",
+      "notes": "Monthly report bundle.",
+      "owner": "d.kapoor"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-08-01",
+      "matter_id": "REC-004",
+      "matter_type": "REPORT",
+      "matter_value": 6100.0,
+      "responsible_attorney": "d.kapoor",
+      "summary": "Routine billing status report for d.kapoor; matter value $6,100, target date 2026-08-01."
+    },
+    "record_id": "REC-004"
+  },
+  "response_hash": "sha256:4d40e3a236ef1c56c66e05e2dee4c3fcd3b161db5ebbf2bac3d5e2c00c7890ff",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

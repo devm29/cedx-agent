@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:2acd659abd353205eb5036b51a36b049bfdede58d4ac9aea10c44dee6efdb089",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-001",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 4800.0,
+      "category": "ONBOARDING",
+      "deadline": "2026-07-15",
+      "id": "REC-001",
+      "notes": "Standard new-client setup.",
+      "owner": "a.shah"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-15",
+      "matter_id": "REC-001",
+      "matter_type": "ONBOARDING",
+      "matter_value": 4800.0,
+      "responsible_attorney": "a.shah",
+      "summary": "Routine new-matter onboarding for a.shah; matter value $4,800, target date 2026-07-15."
+    },
+    "record_id": "REC-001"
+  },
+  "response_hash": "sha256:51c9827f1a1a6ed109c3e5feedccefc6017deb398896e7ad5936bdf50eb23a12",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

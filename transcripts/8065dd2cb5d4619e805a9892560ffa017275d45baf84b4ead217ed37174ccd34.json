@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-12-orchestrator-caps-loop",
+  "request": {
+    "case_id": "gc-12-orchestrator-caps-loop"
+  },
+  "response": {
+    "rationale": "Orchestrator correctly killed a non-converging record at the step ceiling.",
+    "score": 0.9
+  },
+  "response_hash": "sha256:8065dd2cb5d4619e805a9892560ffa017275d45baf84b4ead217ed37174ccd34",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

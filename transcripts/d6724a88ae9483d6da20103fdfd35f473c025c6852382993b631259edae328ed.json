@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-07-superseded-version",
+  "request": {
+    "case_id": "gc-07-superseded-version"
+  },
+  "response": {
+    "rationale": "Correctly kept the higher version and logged the loser as SUPERSEDED_VERSION.",
+    "score": 0.95
+  },
+  "response_hash": "sha256:d6724a88ae9483d6da20103fdfd35f473c025c6852382993b631259edae328ed",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

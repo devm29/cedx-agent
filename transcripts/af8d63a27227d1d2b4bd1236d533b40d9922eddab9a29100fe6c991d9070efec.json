@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:8cf1d378d2ff9346ea39bc64f4a1b60782877ca4df7c59d937babb5b6e09c9ea",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-003",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 3900.0,
+      "category": "REVIEW",
+      "deadline": "2026-07-10",
+      "id": "REC-003",
+      "notes": "Quarterly review pack.",
+      "owner": "c.nguyen"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-10",
+      "matter_id": "REC-003",
+      "matter_type": "REVIEW",
+      "matter_value": 3900.0,
+      "responsible_attorney": "c.nguyen",
+      "summary": "Routine matter review for c.nguyen; matter value $3,900, target date 2026-07-10."
+    },
+    "record_id": "REC-003"
+  },
+  "response_hash": "sha256:af8d63a27227d1d2b4bd1236d533b40d9922eddab9a29100fe6c991d9070efec",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

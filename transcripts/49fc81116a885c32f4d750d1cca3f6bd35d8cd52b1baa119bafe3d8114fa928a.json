@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:364f5908523d0c014e4a52fa77234b3c3ad833a428657672ed99fcc8d6292dda",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-009",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 4600.0,
+      "category": "ONBOARDING",
+      "deadline": "2026-07-30",
+      "id": "REC-009",
+      "notes": "Onboarding, signed pack attached.",
+      "owner": "i.rossi"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-30",
+      "matter_id": "REC-009",
+      "matter_type": "ONBOARDING",
+      "matter_value": 4600.0,
+      "responsible_attorney": "i.rossi",
+      "summary": "Routine new-matter onboarding for i.rossi; matter value $4,600, target date 2026-07-30."
+    },
+    "record_id": "REC-009"
+  },
+  "response_hash": "sha256:49fc81116a885c32f4d750d1cca3f6bd35d8cd52b1baa119bafe3d8114fa928a",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

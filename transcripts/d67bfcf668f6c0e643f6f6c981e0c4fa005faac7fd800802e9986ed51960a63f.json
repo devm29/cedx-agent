@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-01-stale",
+  "request": {
+    "case_id": "gc-01-stale"
+  },
+  "response": {
+    "rationale": "Correctly flagged the past-deadline record as STALE using a pure date comparison.",
+    "score": 0.97
+  },
+  "response_hash": "sha256:d67bfcf668f6c0e643f6f6c981e0c4fa005faac7fd800802e9986ed51960a63f",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

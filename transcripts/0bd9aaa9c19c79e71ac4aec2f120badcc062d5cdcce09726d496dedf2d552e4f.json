@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-10-verifier-catches-hallucination",
+  "request": {
+    "case_id": "gc-10-verifier-catches-hallucination"
+  },
+  "response": {
+    "rationale": "Verifier correctly rejected a fabricated field/value not supported by source.",
+    "score": 0.96
+  },
+  "response_hash": "sha256:0bd9aaa9c19c79e71ac4aec2f120badcc062d5cdcce09726d496dedf2d552e4f",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

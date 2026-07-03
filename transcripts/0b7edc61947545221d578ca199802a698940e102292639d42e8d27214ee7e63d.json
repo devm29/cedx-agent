@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:83a7811a2cfc83532632ea6cddfa835d86a93abf31d0b8ce7abcb1521b97c16e",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-002",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 5200.0,
+      "category": "RENEWAL",
+      "deadline": "2026-07-20",
+      "id": "REC-002",
+      "notes": "Annual renewal, no changes.",
+      "owner": "b.ortiz"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-07-20",
+      "matter_id": "REC-002",
+      "matter_type": "RENEWAL",
+      "matter_value": 5200.0,
+      "responsible_attorney": "b.ortiz",
+      "summary": "Routine engagement letter renewal for b.ortiz; matter value $5,200, target date 2026-07-20."
+    },
+    "record_id": "REC-002"
+  },
+  "response_hash": "sha256:0b7edc61947545221d578ca199802a698940e102292639d42e8d27214ee7e63d",
+  "tokens_in": 180,
+  "tokens_out": 90
+}

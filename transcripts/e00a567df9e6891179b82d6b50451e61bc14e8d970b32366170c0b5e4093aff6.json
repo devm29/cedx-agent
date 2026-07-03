@@ -1,0 +1,31 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 0.001125,
+  "delivered_fields_hash": null,
+  "latency_ms": 610.0,
+  "model": "gpt-4o",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-021",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 5100.0,
+      "category": "?",
+      "deadline": "2026-07-26",
+      "id": "REC-021",
+      "notes": "Category unclear; amount in a side letter not attached. Could be renewal or new intake.",
+      "owner": "u.delgado"
+    }
+  },
+  "response": {
+    "abstain": true,
+    "abstain_reason": "category is unspecified ('?') and the amount is referenced from a side letter that was not attached -- no reliable basis to state matter_type or matter_value.",
+    "confidence": 0.32,
+    "delivered_fields": null,
+    "record_id": "REC-021"
+  },
+  "response_hash": "sha256:e00a567df9e6891179b82d6b50451e61bc14e8d970b32366170c0b5e4093aff6",
+  "tokens_in": 210,
+  "tokens_out": 60
+}

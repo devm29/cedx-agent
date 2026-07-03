@@ -1,0 +1,20 @@
+{
+  "agent": "judge",
+  "attempt": 1,
+  "cost_usd": 2e-05,
+  "delivered_fields_hash": null,
+  "latency_ms": 210.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "judge-v1",
+  "record_id": "gc-08-worker-clean-assembly",
+  "request": {
+    "case_id": "gc-08-worker-clean-assembly"
+  },
+  "response": {
+    "rationale": "Worker drafted a grounded, passthrough-accurate package; Verifier passed it cleanly.",
+    "score": 0.94
+  },
+  "response_hash": "sha256:9385c9c3363627e39f9bf897dd7328cae1e0fc2a43ac3de51841f98122474f9e",
+  "tokens_in": 60,
+  "tokens_out": 25
+}

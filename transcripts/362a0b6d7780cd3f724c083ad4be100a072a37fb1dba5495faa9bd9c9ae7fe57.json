@@ -1,0 +1,38 @@
+{
+  "agent": "worker",
+  "attempt": 1,
+  "cost_usd": 8.1e-05,
+  "delivered_fields_hash": "sha256:36293f2aadcbf678a860bed8a8cfcaa2bf60531582a5e3f25501cd5177929cf1",
+  "latency_ms": 420.0,
+  "model": "gpt-4o-mini",
+  "prompt_version": "worker-v1",
+  "record_id": "REC-020",
+  "request": {
+    "instruction": "Draft the branded matter package from the normalized record.",
+    "record": {
+      "amount": 5250.0,
+      "category": "REPORT",
+      "deadline": "2026-08-02",
+      "id": "REC-020",
+      "notes": "Monthly figures.",
+      "owner": "t.novak"
+    }
+  },
+  "response": {
+    "abstain": false,
+    "abstain_reason": null,
+    "confidence": 0.93,
+    "delivered_fields": {
+      "deadline": "2026-08-02",
+      "matter_id": "REC-020",
+      "matter_type": "REPORT",
+      "matter_value": 5250.0,
+      "responsible_attorney": "t.novak",
+      "summary": "Routine billing status report for t.novak; matter value $5,250, target date 2026-08-02."
+    },
+    "record_id": "REC-020"
+  },
+  "response_hash": "sha256:362a0b6d7780cd3f724c083ad4be100a072a37fb1dba5495faa9bd9c9ae7fe57",
+  "tokens_in": 180,
+  "tokens_out": 90
+}
