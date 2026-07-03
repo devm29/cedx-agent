@@ -6,7 +6,7 @@ from tinycedx.config import REQUIRED_FIELDS
 
 
 def check_missing(record: dict[str, Any]) -> list[str]:
-    missing = []
+    missing = ["id"] if record.get("id_missing") else []
     for field in REQUIRED_FIELDS:
         value = record.get(field)
         if value is None or (isinstance(value, str) and not value.strip()):

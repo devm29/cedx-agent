@@ -97,8 +97,16 @@ def normalize_record(raw: dict[str, Any], alias_map: dict[str, list[str]]) -> di
         s = str(v).strip()
         return s or None
 
+    record_id = _clean_str(canonical.get("id")) or raw.get("id")
+    # A record with no id still needs a unique, schema-valid key so it can be quarantined as
+    # MISSING_INPUT without colliding with (or "superseding") other id-less records.
+    id_missing = record_id is None
+    if id_missing:
+        record_id = f"NO-ID:{raw['source_file']}#{raw['intake_order']}"
+
     normalized = {
-        "id": _clean_str(canonical.get("id")) or raw.get("id"),
+        "id": record_id,
+        "id_missing": id_missing,
         "owner": _clean_str(canonical.get("owner")),
         "deadline": _clean_str(canonical.get("deadline")),
         "category": (_clean_str(canonical.get("category")) or "").upper() or None,
