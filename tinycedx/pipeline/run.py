@@ -41,6 +41,7 @@ def _base_record_entry(r: dict, *, status: str, reason_code: str | None, reason_
     return {
         "id": r["id"],
         "version": r.get("version"),
+        "owner": r.get("owner"),
         "source_format": r["source_format"],
         "source_version_hash": r.get("source_version_hash"),
         "status": status,

@@ -127,3 +127,10 @@ def test_replay_of_superseded_id_shows_the_delivered_lineage(demo_out):
     assert proc.returncode == 0
     assert "version: 2  final status: delivered" in proc.stdout
     assert "matches audit entry: OK" in proc.stdout
+
+
+def test_exception_queue_names_the_responsible_attorney(demo_out):
+    queue = {e["id"]: e for e in json.loads((demo_out / "exception_queue.json").read_text())}
+    assert len(queue) == 8
+    assert queue["REC-011"]["owner"] == "k.banerjee"
+    assert all(e["owner"] for e in queue.values() if "'owner'" not in (e["detail"] or ""))
