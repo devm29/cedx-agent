@@ -48,8 +48,8 @@ def call_llm(*, model: str, api_key: str, base_url: str | None, system_prompt: s
         tokens_in, tokens_out = usage.get("input_tokens", 0), usage.get("output_tokens", 0)
 
     elif lower.startswith("gemini"):
-        url = (base_url or "https://generativelanguage.googleapis.com") + f"/v1beta/models/{model}:generateContent?key={api_key}"
-        headers = {"content-type": "application/json"}
+        url = (base_url or "https://generativelanguage.googleapis.com") + f"/v1beta/models/{model}:generateContent"
+        headers = {"x-goog-api-key": api_key, "content-type": "application/json"}
         body = {"contents": [{"parts": [{"text": system_prompt + "\n\n" + user_prompt}]}]}
         raw = _post_json(url, headers, body)
         text = raw["candidates"][0]["content"]["parts"][0]["text"]

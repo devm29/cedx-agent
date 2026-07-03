@@ -15,8 +15,9 @@ PIPELINE_NOW = os.environ.get("PIPELINE_NOW", "2026-06-26")
 PIPELINE_VERSION = "tinycedx-lawfirms-v1"
 
 LLM_API_KEY = os.environ.get("LLM_API_KEY")
-LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-4o-mini")
-LLM_BASE_URL = os.environ.get("LLM_BASE_URL")
+LLM_MODEL = os.environ.get("LLM_MODEL") or None
+LLM_MODEL_STRONG = os.environ.get("LLM_MODEL_STRONG") or None
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL") or None
 
 MAX_COST_USD_PER_RECORD = float(os.environ.get("MAX_COST_USD_PER_RECORD", "0.02"))
 MAX_STEPS_PER_RECORD = int(os.environ.get("MAX_STEPS_PER_RECORD", "4"))
@@ -28,6 +29,14 @@ MODEL_PRICING_PER_1K = {
 
 ESTIMATED_TOKENS_IN = 200
 ESTIMATED_TOKENS_OUT = 100
+
+
+def live_model_for(tier: str) -> str:
+    """Model to call on the live path. LLM_MODEL replaces the cheap tier (and the strong tier
+    too, unless LLM_MODEL_STRONG is set); with neither set the router's defaults are used."""
+    if tier == "strong":
+        return LLM_MODEL_STRONG or LLM_MODEL or MODEL_PRICING_PER_1K["strong"]["model"]
+    return LLM_MODEL or MODEL_PRICING_PER_1K["cheap"]["model"]
 
 
 def estimate_cost(tier: str) -> float:

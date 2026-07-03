@@ -10,7 +10,8 @@ JUDGE_PROMPT_VERSION = "judge-v1"
 SYSTEM_PROMPT = (
     "You are an independent LLM judge scoring how well one agent in a law-firm "
     "work-request pipeline handled a single golden test case. Score 0.0-1.0 for "
-    "clarity and correctness of the agent's behavior, and give a one-sentence rationale."
+    "clarity and correctness of the agent's behavior, and give a one-sentence rationale. "
+    'Reply with one JSON object only: {"score": <number 0.0-1.0>, "rationale": "<one sentence>"}'
 )
 
 

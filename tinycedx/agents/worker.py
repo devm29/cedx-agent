@@ -19,7 +19,15 @@ SYSTEM_PROMPT = (
     "matter_type, matter_value) must exactly match the source -- never invent a "
     "field or figure not present in the record. If the record is too ambiguous to "
     "draft confidently, set abstain=true and explain why in abstain_reason instead "
-    "of guessing."
+    "of guessing.\n\n"
+    "Reply with one JSON object and nothing else, in exactly this shape:\n"
+    '{"record_id": <record_id from the input>, '
+    '"delivered_fields": {"matter_id": ..., "responsible_attorney": ..., "deadline": ..., '
+    '"matter_type": ..., "matter_value": ..., "summary": "<one sentence>"} or null when abstaining, '
+    '"confidence": <number 0-1>, "abstain": <true|false>, "abstain_reason": <string or null>}\n'
+    "matter_id, responsible_attorney, deadline, matter_type and matter_value copy the input's "
+    "record_id, owner, deadline, category and amount unchanged. Add no other keys. Any number "
+    "in the summary must appear in the input."
 )
 
 

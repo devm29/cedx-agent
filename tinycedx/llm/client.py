@@ -54,7 +54,7 @@ def call(*, agent: str, record_id: str, attempt: int, model_tier: str, model_nam
         if not config.LLM_API_KEY:
             raise RuntimeError("REPLAY_LLM=false requires LLM_API_KEY to be set")
         result = live_llm.call_llm(
-            model=model_name, api_key=config.LLM_API_KEY, base_url=config.LLM_BASE_URL,
+            model=config.live_model_for(model_tier), api_key=config.LLM_API_KEY, base_url=config.LLM_BASE_URL,
             system_prompt=system_prompt, user_prompt=user_prompt,
         )
         cost_usd = _cost(model_tier, result["tokens_in"], result["tokens_out"])
