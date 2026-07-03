@@ -5,6 +5,7 @@ from typing import Any
 
 from tinycedx.agents.base import Agent
 from tinycedx.agents.contracts import VERIFIER_INPUT, VERIFIER_OUTPUT, validate
+from tinycedx.config import LOW_CONFIDENCE_THRESHOLD
 
 VERIFIER_AGENT = Agent(
     name="verifier", role="verifier", models=["rule-based-verifier-v1"], can_call=[],
@@ -19,15 +20,23 @@ ALLOWED_KEYS = set(PASSTHROUGH_MAP) | {"summary"}
 _DIGIT_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
 
 
+def _canonical_number(token: str) -> str:
+    """'4,800.50' and '4800.5' are the same figure; '001' stays '001' so id digits match as written."""
+    token = token.replace(",", "")
+    if "." in token:
+        token = token.rstrip("0").rstrip(".")
+    return token
+
+
 def _source_digit_tokens(source: dict[str, Any]) -> set[str]:
     tokens: set[str] = set()
     for v in (source.get("id"), source.get("deadline")):
         if v:
-            tokens.update(_DIGIT_RE.findall(str(v)))
+            tokens.update(_canonical_number(tok) for tok in _DIGIT_RE.findall(str(v)))
     amount = source.get("amount")
     if isinstance(amount, (int, float)):
-        tokens.add(str(int(amount)) if float(amount).is_integer() else str(amount))
-        tokens.add(f"{amount:,.0f}")
+        tokens.add(_canonical_number(f"{amount:f}"))
+        tokens.add(_canonical_number(f"{amount:.0f}"))
     return tokens
 
 
@@ -39,6 +48,15 @@ def verify(*, source: dict[str, Any], worker_output: dict[str, Any]) -> dict[str
         result = {
             "record_id": source["id"], "verdict": "needs_human", "mismatches": [],
             "overruled": False, "notes": worker_output.get("abstain_reason"),
+        }
+        validate(result, VERIFIER_OUTPUT, label="VerifierOutput")
+        return result
+
+    confidence = worker_output.get("confidence")
+    if isinstance(confidence, (int, float)) and confidence < LOW_CONFIDENCE_THRESHOLD:
+        result = {
+            "record_id": source["id"], "verdict": "needs_human", "mismatches": [], "overruled": False,
+            "notes": f"worker confidence {confidence} is below LOW_CONFIDENCE_THRESHOLD {LOW_CONFIDENCE_THRESHOLD}",
         }
         validate(result, VERIFIER_OUTPUT, label="VerifierOutput")
         return result
@@ -67,7 +85,7 @@ def verify(*, source: dict[str, Any], worker_output: dict[str, Any]) -> dict[str
         summary = str(delivered.get("summary") or "")
         grounded = _source_digit_tokens(source)
         for tok in _DIGIT_RE.findall(summary):
-            if tok not in grounded and tok.replace(",", "") not in grounded:
+            if _canonical_number(tok) not in grounded:
                 mismatches.append(f"summary references a number not grounded in source: {tok!r}")
 
     verdict = "fail" if mismatches else "pass"
