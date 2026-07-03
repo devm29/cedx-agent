@@ -1,7 +1,7 @@
 {
   "$id": "tinycedx://schema/field_mapping.v1.json",
   "version": 1,
-  "description": "Fast-path alias cache for known field renames observed so far. This is NOT the sole schema-drift detection mechanism -- normalize.py's structural detector (a required canonical field missing + exactly one unmapped extra key of a compatible type/shape present) is what actually generalizes to a held-out seed with unseen rename names. This file is just a hint that lets already-seen renames skip the structural-inference step, and normalize.py appends newly-inferred aliases here at runtime (in out/state/, never mutating this committed copy) so repeated renames in a batch are recognized instantly.",
+  "description": "Fast-path alias cache for known field renames observed so far. This is NOT the sole schema-drift detection mechanism -- normalize.py's structural detector (a required canonical field missing + exactly one unmapped extra key of a compatible type/shape present) is what actually generalizes to a held-out seed with unseen rename names. This file is just a hint that lets already-seen renames skip the structural-inference step, Renames inferred at runtime are logged as SCHEMA_DRIFT events and are not written back to this file.",
   "aliases": {
     "id": ["id", "record_id", "ref", "matter_id"],
     "owner": ["owner", "attorney", "responsible", "assigned_to"],

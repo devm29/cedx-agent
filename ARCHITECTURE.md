@@ -33,7 +33,7 @@
                                                                    └─────────────┘
 ```
 
-The `agents` ist inside `out/audit.json` is generated directly from the five `Agent` dataclasses in `tinycedx/agents/base.py`. It is not a separate document that could drift out of sync with the code.
+The `agents` list inside `out/audit.json` is generated directly from the five `Agent` dataclasses in `tinycedx/agents/base.py`. It is not a separate document that could drift out of sync with the code.
 
 ## 2. List, Typed Contracts, File Pointers
 
