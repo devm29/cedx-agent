@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from tinycedx.hashutil import canon, sha_hex
+from tinycedx.hashutil import sha_hex
 
 
 class TranscriptNotFound(Exception):

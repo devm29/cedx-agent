@@ -4,7 +4,7 @@
 SEED_DIR ?= seed
 
 .PHONY: demo verify trace eval replay probe-approval probe-agent-failure probe-budget \
-        probe-append-only probe-idempotency probe-crash clean
+        probe-append-only probe-idempotency probe-crash test lint clean
 
 # Full multi-agent pipeline, offline replay, on $(SEED_DIR). Must write out/<package>,
 # out/audit.json (incl. agents roster + per-record agent_trace + cost), out/exception_queue.json.
@@ -53,6 +53,13 @@ probe-idempotency:
 # BONUS. Exit 0 if the pipeline resumes from the last completed stage after a SIGKILL.
 probe-crash:
 	python3 -m tinycedx.cli.probes.crash
+
+# Unit + end-to-end tests (needs requirements-dev.txt).
+test:
+	python3 -m pytest
+
+lint:
+	python3 -m ruff check .
 
 clean:
 	rm -rf out

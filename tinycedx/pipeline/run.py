@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from tinycedx import config
@@ -157,7 +157,7 @@ def run() -> int:
     log("[stage 5/5] Delivery: building branded package + audit + exception queue ...")
     config.OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
     package, package_hash = build_package(case_id=config.CASE_ID, generated_at=generated_at,
                                            delivered_records=delivered_for_package)
     atomic_write_text(config.OUT_DIR / "branded_package.json", json.dumps(package, indent=2, sort_keys=True))

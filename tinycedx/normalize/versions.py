@@ -26,8 +26,8 @@ def resolve_versions(records: list[dict[str, Any]]) -> tuple[list[dict[str, Any]
             "kept_version": winner.get("version"),
             "kept_source_file": winner.get("source_file"),
             "superseded_versions": [
-                {"version": l.get("version"), "source_file": l.get("source_file")}
-                for l in losers
+                {"version": loser.get("version"), "source_file": loser.get("source_file")}
+                for loser in losers
             ],
         }
         kept.append(winner)

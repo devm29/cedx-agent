@@ -1,0 +1,13 @@
+[tool.ruff]
+target-version = "py312"
+line-length = 150
+# verify_audit.py is the grading gate supplied with the kit; it stays byte-for-byte as provided.
+extend-exclude = ["verify_audit.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

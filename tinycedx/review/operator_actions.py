@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 from tinycedx.agents.contracts import OPERATOR_ACTION, validate
@@ -13,7 +13,7 @@ class DeliveryRefused(Exception):
 
 
 def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _do(machine: ApprovalStateMachine, *, action: str, to_state: str, actor: str,

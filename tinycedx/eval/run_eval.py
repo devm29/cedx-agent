@@ -7,6 +7,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from tinycedx import config
 from tinycedx.agents.orchestrator import process_record
 from tinycedx.detectors.registry import classify_batch
 from tinycedx.eval import scenarios
@@ -73,8 +74,7 @@ def _run_orchestrator_scenario_case(case: dict[str, Any]) -> tuple[str | None, s
         return result["reason_code"], case.get("expected_reason_code"), None, None
 
     if scenario == "priced_downgrade":
-        amendment = compute_amendment("CEDX-XXXX")
-        strong_est = 0.0015
+        strong_est = config.estimate_cost("strong")
         result = process_record(record=rec, low_confidence_flag=True, amendment_threshold=10 ** 9,
                                  max_cost_usd=strong_est * 0.6, worker_fn=scenarios.priced_worker)
         return result.get("model_tier"), None, result.get("model_tier"), case.get("expected_model_tier")

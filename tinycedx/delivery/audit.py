@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 from tinycedx.hashutil import sha
@@ -17,7 +17,7 @@ class AuditLog:
     def append(self, *, actor: str, action: str, record_id: str | None = None,
                ts: str | None = None) -> dict[str, Any]:
         seq = len(self._events)
-        ts = ts or datetime.now(timezone.utc).isoformat()
+        ts = ts or datetime.now(UTC).isoformat()
         body = {"seq": seq, "ts": ts, "actor": actor, "action": action, "record_id": record_id}
         h = sha({"prev_hash": self._prev_hash, "event": body})
         entry = {**body, "prev_hash": self._prev_hash, "hash": h}
@@ -50,7 +50,7 @@ def build_audit(*, case_id: str, pipeline_version: str, seed_dir: str, pipeline_
     return {
         "case_id": case_id,
         "pipeline_version": pipeline_version,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "seed_dir": seed_dir,
         "pipeline_now": pipeline_now,
         "amendment": amendment,
