@@ -104,3 +104,26 @@ def test_eval_harness_passes(demo_out):
     proc = _run("tinycedx.eval.run_eval", demo_out)
     assert proc.returncode == 0, proc.stdout
     assert "overall: 14/14" in proc.stdout
+
+
+def test_trace_of_superseded_id_shows_the_live_version(demo_out):
+    proc = _run("tinycedx.cli.trace", demo_out, "--id", "REC-017", "--audit", str(demo_out / "audit.json"))
+    assert proc.returncode == 0
+    assert "status=delivered" in proc.stdout.splitlines()[0]
+    assert "version=2" in proc.stdout
+    assert "v1 (superseded)" in proc.stdout
+
+
+def test_trace_can_select_an_older_version(demo_out):
+    proc = _run("tinycedx.cli.trace", demo_out, "--id", "REC-017", "--version", "1", "--audit", str(demo_out / "audit.json"))
+    assert proc.returncode == 0
+    assert "status=superseded" in proc.stdout.splitlines()[0]
+    assert _run("tinycedx.cli.trace", demo_out, "--id", "REC-017", "--version", "9",
+                "--audit", str(demo_out / "audit.json")).returncode == 1
+
+
+def test_replay_of_superseded_id_shows_the_delivered_lineage(demo_out):
+    proc = _run("tinycedx.cli.replay_cmd", demo_out, "--id", "REC-017", "--audit", str(demo_out / "audit.json"))
+    assert proc.returncode == 0
+    assert "version: 2  final status: delivered" in proc.stdout
+    assert "matches audit entry: OK" in proc.stdout

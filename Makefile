@@ -18,7 +18,7 @@ verify:
 # Print one record's FULL agent decision path from the log alone:
 # which agent ran, model, tokens/cost, retries, Verifier verdict, where it routed.
 trace:
-	python3 -m tinycedx.cli.trace --id $(ID)
+	python3 -m tinycedx.cli.trace --id $(ID) $(if $(VERSION),--version $(VERSION))
 
 # Run your agent eval harness: >=10 golden cases + an LLM-judge per agent. Print per-agent scores.
 eval:
@@ -26,7 +26,7 @@ eval:
 
 # Reconstruct one delivered output's DATA lineage from the append-only log alone.
 replay:
-	python3 -m tinycedx.cli.replay_cmd --id $(ID)
+	python3 -m tinycedx.cli.replay_cmd --id $(ID) $(if $(VERSION),--version $(VERSION))
 
 # Exit 0 ONLY if delivery of a NON-approved item (incl. CASE_ID amendment role) is refused + logged.
 probe-approval:

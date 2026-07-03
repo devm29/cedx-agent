@@ -5,12 +5,14 @@ import json
 import sys
 
 from tinycedx import config
+from tinycedx.cli.lookup import describe_other_versions, find_record
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--id", required=True)
     ap.add_argument("--audit", default=str(config.OUT_DIR / "audit.json"))
+    ap.add_argument("--version", type=int, default=None, help="pick one version when an id was superseded")
     args = ap.parse_args()
 
     try:
@@ -19,11 +21,11 @@ def main() -> int:
         print(f"FAIL: {args.audit} not found -- run `make demo` first", file=sys.stderr)
         return 1
 
-    records = [r for r in audit["records"] if r["id"] == args.id]
-    if not records:
-        print(f"FAIL: no record {args.id!r} in {args.audit}", file=sys.stderr)
+    r, others = find_record(audit, args.id, args.version)
+    if r is None:
+        wanted = args.id if args.version is None else f"{args.id} version {args.version}"
+        print(f"FAIL: no record {wanted!r} in {args.audit}", file=sys.stderr)
         return 1
-    r = records[0]
 
     print(f"record {r['id']}  status={r['status']}  reason_code={r['reason_code']}  "
           f"reason_class={r['reason_class']}")
@@ -31,6 +33,9 @@ def main() -> int:
         print(f"  detail: {r['detail']}")
     print(f"  source_format={r['source_format']}  version={r.get('version')}  "
           f"source_version_hash={r.get('source_version_hash')}")
+    note = describe_other_versions(others)
+    if note:
+        print(note)
     print()
     print(f"agent_trace ({len(r['agent_trace'])} span(s)):")
     for i, span in enumerate(r["agent_trace"], 1):
