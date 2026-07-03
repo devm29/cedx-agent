@@ -1,13 +1,21 @@
 services:
   tinycedx:
     build: .
-    platform: linux/amd64
     environment:
       REPLAY_LLM: "true"
       SEED_DIR: "/app/seed"
-      CASE_ID: "${CASE_ID:-CEDX-82C0A1}"      # set to YOUR live-assigned CASE_ID
-      PIPELINE_NOW: "2026-06-26"
-      # For the held-out real-LLM run, graders set:
-      #   REPLAY_LLM=false, LLM_API_KEY=..., LLM_MODEL=gpt-4o-mini|claude-3-5-haiku|gemini-1.5-flash
+      CASE_ID: "${CASE_ID:-CEDX-82C0A1}"
+      # Fixed "today" so the dev seed's STALE record stays stale on any date.
+      PIPELINE_NOW: "${PIPELINE_NOW:-2026-06-26}"
     volumes:
       - ./out:/app/out
+
+  tests:
+    profiles: ["test"]
+    build:
+      context: .
+      args:
+        DEV: "true"
+    environment:
+      REPLAY_LLM: "true"
+    command: ["sh", "-c", "make lint && make test"]

@@ -1,4 +1,3 @@
-# verify_audit.py needs jsonschema. pypdf is here for a Python reference intake;
-# if you build in another language, replace these with your own deps.
-jsonschema>=4.0
-pypdf>=4.0
+# jsonschema validates agent contracts and the audit bundle; pypdf reads inbox PDFs.
+jsonschema==4.26.0
+pypdf==7.0.0
